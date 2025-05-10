@@ -20,20 +20,20 @@ class Solution {
         if (root == null) {
             return res;
         }
-        Deque<TreeNode> dq = new LinkedList<>();
-        dq.add(root);
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
         int count = 1;
-        while (!dq.isEmpty()) {
-            int size = dq.size();
+        while (!q.isEmpty()) {
+            int size = q.size();
             List<Integer> level = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                TreeNode temp = dq.remove();
+                TreeNode temp = q.remove();
                 level.add(temp.val);
                 if(temp.left != null){
-                    dq.add(temp.left);
+                    q.add(temp.left);
                 }
                 if(temp.right != null){
-                    dq.add(temp.right);
+                    q.add(temp.right);
                 }
             }
             if((count%2) == 0){
